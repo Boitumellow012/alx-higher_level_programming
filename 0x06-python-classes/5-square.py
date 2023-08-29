@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""Define a class with the name Square"""
+"""A module that defines a square """
 
 
 class Square:
-    """Defines an empty square."""
+    """A class that represents a square"""
+
     def __init__(self, size=0):
         """Initializing this square class
         Args:
@@ -20,7 +21,7 @@ class Square:
 
         self.__size = size
 
-     @property
+    @property
     def size(self):
         """Retrieves size of square"""
 
@@ -34,13 +35,19 @@ class Square:
             raise ValueError('size must be >= 0')
         self.__size = value
 
-     def area(self):
-        """int: Return area of square."""
-        return self.__size * self.__size
+    def area(self):
+        """
+        Calculate area of the square
+        Returns: The square of the size
+        """
 
-     def my_print(self):
-        """Prints this square."""
-        for i in range(self.size):
-            for j in range(self.size):
-                print("#", end="\n" if j is self.size - 1 and i != j else "")
-        print()
+        return (self.__size ** 2)
+
+    def my_print(self):
+        """print the square in # """
+
+        if self.__size == 0:
+            print()
+
+        for i in range(self.__size):
+            print("#" * self.__size)
